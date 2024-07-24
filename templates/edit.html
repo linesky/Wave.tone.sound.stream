@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Conteúdo</title>
+</head>
+<body>
+    <h2>Editar Conteúdo</h2>
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <form method="post">
+        <label for="content">Conteúdo:</label>
+        <textarea id="content" name="content" rows="10" cols="30">{{ content }}</textarea>
+        <br>
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>
+
